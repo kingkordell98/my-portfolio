@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Insurance Producer | Property & Casualty Insurance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9fbfd;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0088cc;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0088cc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0088cc 0%, #00bfff 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #0088cc;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #0088cc;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #00bfff;
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #0088cc;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.3rem;
+        }
+
+        /* About Section */
+        #about {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 136, 204, 0.08);
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Experience Section */
+        #experience {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 136, 204, 0.08);
+        }
+
+        .experience-list {
+            max-width: 900px;
+            margin: 2rem auto 0;
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e8f0;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item h3 {
+            color: #0088cc;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .date {
+            color: #999;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .company {
+            color: #666;
+            font-style: italic;
+            margin: 0.3rem 0 1rem 0;
+            font-size: 1rem;
+        }
+
+        .experience-item ul {
+            margin: 1rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.6rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Education Section */
+        #education {
+            background-color: #f0f7ff;
+        }
+
+        .education-list {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 136, 204, 0.08);
+        }
+
+        .education-item h3 {
+            color: #0088cc;
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        .certification {
+            color: #999;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin: 1rem 0 0 0;
+        }
+
+        /* Expertise Section */
+        #expertise {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 136, 204, 0.08);
+        }
+
+        .expertise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .expertise-item {
+            padding: 1.5rem;
+            background: #f0f7ff;
+            border-left: 4px solid #0088cc;
+            border-radius: 4px;
+        }
+
+        .expertise-item h4 {
+            color: #0088cc;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #f0f7ff;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 136, 204, 0.08);
+        }
+
+        .contact-card a {
+            color: #0088cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #005fa3;
+        }
+
+        /* References Section */
+        #references {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 136, 204, 0.08);
+        }
+
+        .references-list {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .reference-item {
+            padding: 2rem;
+            background: #f0f7ff;
+            border-left: 4px solid #0088cc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .reference-item h3 {
+            color: #0088cc;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .reference-contact {
+            color: #666;
+            margin: 0;
+        }
+
+        .reference-contact a {
+            color: #0088cc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .reference-contact a:hover {
+            color: #005fa3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003d66;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Kordell King</div>
+            <ul>
+                <li><a href="#about">Summary</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#expertise">Skills</a></li>
+                <li><a href="#references">References</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Kordell King</h1>
+        <p>Licensed Insurance Producer | Life, Health, Property & Casualty | Emerging Tech Innovator</p>
+        <div>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+            <a href="#experience" class="cta-button">View Experience</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Professional Summary Section -->
+        <section id="about">
+            <h2>Professional Summary</h2>
+            <div class="about-content">
+                <p>Entrepreneurial driven insurance producer with licensing in Life, Health, Property and Casualty, complemented by an emerging tech background. Bringing diverse experience from the Food & Beverage industry with a foundation in Music & Entertainment trade (Audio Engineering). Ready to implement newly acquired skills and licenses to make an impact in the community.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Senior Financial Advisor</h3>
+                        <span class="date">01/20 - Present</span>
+                    </div>
+                    <p class="company">King Builders Agency | Rockford, IL</p>
+                    <ul>
+                        <li>Provide comprehensive financial guidance to clients including life insurance, annuities, and investment strategies</li>
+                        <li>Develop customized retirement planning solutions tailored to individual client needs</li>
+                        <li>Build and maintain strong client relationships through proactive communication and personalized service</li>
+                        <li>Stay current with market trends and insurance products to deliver expert recommendations</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Assistant Banquet Manager</h3>
+                        <span class="date">01/24 - 07/25</span>
+                    </div>
+                    <p class="company">Embassy Suites by Hilton | Rockford, IL</p>
+                    <ul>
+                        <li>Supervised and coordinated banquet staff to deliver high-quality experiences for weddings, corporate events, and private functions</li>
+                        <li>Managed event logistics, scheduling, and client relations for multiple simultaneous events</li>
+                        <li>Ensured exceptional service standards and client satisfaction through meticulous attention to detail</li>
+                        <li>Led team training and development to maintain operational excellence</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Shift Manager</h3>
+                        <span class="date">10/14 - 05/19</span>
+                    </div>
+                    <p class="company">McDonald's | Rockford, IL</p>
+                    <ul>
+                        <li>Led shift operations for high-volume location supervising up to 15 employees</li>
+                        <li>Managed inventory, quality control, and customer service standards</li>
+                        <li>Trained staff and implemented operational procedures to optimize efficiency</li>
+                        <li>Maintained food safety compliance and health standards</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Laborer</h3>
+                        <span class="date">05/19 - 12/19</span>
+                    </div>
+                    <p class="company">Sunrise Pool Builders | Rockford, IL</p>
+                    <ul>
+                        <li>Assisted in construction and installation of custom concrete pools and spas across U.S. locations</li>
+                        <li>Collaborated with team members to complete projects on schedule and within specifications</li>
+                        <li>Developed technical construction skills and attention to quality standards</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education & Certifications</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <h3>TripleTen Bootcamp</h3>
+                    <p class="certification">AI/Machine Learning Certification | 11/25 - Present</p>
+                    <p class="description">Intensive bootcamp training in artificial intelligence and machine learning technologies, developing technical skills in emerging tech landscape</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>SAE Institute Chicago</h3>
+                    <p class="certification">Associates in Audio Engineering | 10/21 - 04/23</p>
+                    <p class="description">Comprehensive training in audio engineering, sound design, and music production with hands-on studio experience</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Insurance Licenses (Illinois)</h3>
+                    <p class="certification">Life, Health, Property & Casualty | Active</p>
+                    <p class="description">Fully licensed and qualified to provide comprehensive insurance solutions across all major lines of business</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Guilford High School</h3>
+                    <p class="certification">High School Diploma | 05/16</p>
+                    <p class="description">Completed comprehensive secondary education with strong foundation in academics and leadership</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="expertise">
+            <h2>Skills & Proficiencies</h2>
+            <div class="expertise-list">
+                <div class="expertise-item">
+                    <h4>Customer Service</h4>
+                    <p>Exceptional client communication, relationship building, and satisfaction management</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Team Leadership & Training</h4>
+                    <p>Staff supervision, employee development, and operational management</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Event Planning & Coordination</h4>
+                    <p>Project management, logistics coordination, and detail-oriented execution</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Python Programming</h4>
+                    <p>pandas, numpy, scipy, matplotlib, seaborn - Data analysis and visualization</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Web Development</h4>
+                    <p>HTML, JavaScript, CSS - Front-end design and interactive web applications</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>SQL & Database Management</h4>
+                    <p>Database design, queries, and data manipulation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:+1-815-289-8594">(815) 289-8594</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>✉️ Email</h3>
+                    <p><a href="mailto:kingkordell98@gmail.com">kingkordell98@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>📍 Location</h3>
+                    <p>Rockford, Illinois</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+            <h2>References</h2>
+            <div class="references-list">
+                <div class="reference-item">
+                    <h3>Robert King</h3>
+                    <p class="reference-contact"><a href="tel:+1-815-289-8594">(815) 289-8594</a></p>
+                </div>
+                <div class="reference-item">
+                    <h3>Tara Bolar</h3>
+                    <p class="reference-contact"><a href="tel:+1-815-742-7653">(815) 742-7653</a></p>
+                </div>
+                <div class="reference-item">
+                    <h3>Traci Madison</h3>
+                    <p class="reference-contact"><a href="tel:+1-815-978-0681">(815) 978-0681</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Professional Insurance Producer. All rights reserved.</p>
+        <p>Property & Casualty Insurance | Licensed & Insured</p>
+    </footer>
+</body>
+</html>
